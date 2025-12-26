@@ -1,6 +1,6 @@
 **/.venv/*
 */mlartifacts/*
-*/mlruns/*
+**/mlruns/**
 */artifacts/*
 */*.pkl
 **/venv/**

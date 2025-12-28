@@ -6,6 +6,9 @@ This project involves creating an ETL pipeline using Apache AirFlow using NASAs 
 I am leveraging Docker to run AirFlow and PostGres as services, ensuring an isolated and reproducible environment. We also utilize Airflow hooks and operators to handle the ETL process efficiently.
 
 
+Run infra/docker-compose.yml before bringing up the project
+docker compose up -d
+
 Project Contents
 ================
 

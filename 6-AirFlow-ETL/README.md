@@ -20,7 +20,7 @@ For deploying to astronomer and running it from there.
 3. Copy the deployment ID from astro
 4. Run astro deploy [deployment-id] -f
 5. Create an RDS instance in AWS.
-6. Add a inbound security policy to the security group to allow traffic to the designated port through TCP (in this case I create a custom TCP policy because I set the port to 5431 but if you are using default postgres settings you can get away with using the preset postgres connection in the connection type)
+6. Add a inbound security policy to the security group to allow traffic to the designated port through TCP, you can use the preset postgres connection type and allow traffic from anywhere 0.0.0.0/0
 7. On the astronomer UI click on deployment >  Open Airflow  to open the Airlfow UI for this deployment.
 8. Create a connection for postgres with the hostname of postgres from AWS RDS. Enter details
 9. Create a connection for nasa api using the api key.

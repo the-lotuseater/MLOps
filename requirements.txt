@@ -15,6 +15,10 @@ dagshub
 dvc-s3
 python-dotenv==1.2.1
 
+# --- Database & Connectivity ---
+pymongo==4.6.1
+certifi==2024.12.14
+
 # --- Visualization & Notebooks ---
 matplotlib
 notebook
@@ -30,3 +34,5 @@ joblib
 # --- Web & API ---
 Flask
 Flask-Cors
+
+# -e .

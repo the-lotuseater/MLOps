@@ -1,7 +1,7 @@
 from src.datascience.constants import *
 from src.datascience.utils.common import read_yaml, create_directories
-
-from src.datascience.entity.config_entity import ModelTrainerConfig,DataIngestionConfig,DataValidationConfig,DataTransformationConfig
+import os
+from src.datascience.entity.config_entity import ModelTrainerConfig,DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelEvaluationConfig
 
 class ConfigurationManager:
     def __init__(
@@ -68,3 +68,18 @@ class ConfigurationManager:
             target_column=schema.TARGET_COLUMN.name
         )
         return model_trainer_config
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        params = self.params.ElasticNet
+        create_directories([config.root_dir])
+        model_val_config = ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            model_path = config.model_path,
+            test_data_path=config.test_data_path,
+            metric_file_name=config.metric_file_name,
+            all_params=params,
+            target_column=self.schema.TARGET_COLUMN.name,
+            mlflow_uri=os.environ["MLFLOW_TRACKING_URI"]
+        )
+        return model_val_config

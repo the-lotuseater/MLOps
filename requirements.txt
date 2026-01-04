@@ -13,6 +13,7 @@ hyperopt==0.2.7
 dvc
 dagshub
 dvc-s3
+python-dotenv==1.2.1
 
 # --- Visualization & Notebooks ---
 matplotlib

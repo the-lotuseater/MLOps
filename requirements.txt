@@ -35,4 +35,7 @@ joblib
 # --- Web & API ---
 Flask
 Flask-Cors
+
+dill
+pyaml
 # -e .

@@ -35,6 +35,8 @@ joblib
 # --- Web & API ---
 Flask
 Flask-Cors
+fastapi
+uvicorn
 
 dill
 pyaml

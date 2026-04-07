@@ -37,6 +37,7 @@ Flask
 Flask-Cors
 fastapi
 uvicorn
+python-multipart
 
 dill
 pyaml

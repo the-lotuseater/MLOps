@@ -8,3 +8,9 @@ class DataIngestionConfig:
     source_url: Path
     local_data_file: Path
     unzip_dir: Path
+
+@dataclass
+class DataTransformationConfig:
+    root_dir: str
+    data_path: str
+    tokenizer_name: str

@@ -32,14 +32,17 @@ async def training():
 @app.post('/predict')
 async def predict_route(request:Msg):
     global pred_pipeline
+    response = None
     try:
         if pred_pipeline == None:
             await load_model()
-        
-        result = pred_pipeline.predict(request.text)
-        return {'summary':result}
+            response= {'response':"Model has been loaded into memory please run /train first."}
+        else:
+            result = pred_pipeline.predict(request.text)
+            response= {'summary':result}
     except Exception as e:
         raise e
+    return response
     
 @app.put('/load')
 async def load_model():

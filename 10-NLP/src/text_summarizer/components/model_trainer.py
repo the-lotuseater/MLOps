@@ -9,13 +9,13 @@ import os
 import torch
 
 class ModelTrainer():
-    def __init__(self,model_trainer_config:ModelTrainerConfig):
+    def __init__(self,model_trainer_config:ModelTrainerConfig,device:str):
         self.model_trainer_config = model_trainer_config
+        self.device = device
 
     def train(self):
-        device = self.model_trainer_config.device if torch.cuda.is_available() else 'cpu'
         tokenizer = AutoTokenizer.from_pretrained(self.model_trainer_config.model_ckpt)
-        model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.model_trainer_config.model_ckpt).to(device)
+        model_pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.model_trainer_config.model_ckpt).to(self.device)
         seq2seq_data_collector = DataCollatorForSeq2Seq(tokenizer, model=model_pegasus)
         LOGGER.info(self.model_trainer_config)
         dataset_samsum_pt = load_from_disk(self.model_trainer_config.data_path)

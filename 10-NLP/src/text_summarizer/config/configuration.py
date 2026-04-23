@@ -1,9 +1,7 @@
 from dataclasses import dataclass
-from pathlib import Path
 from src.text_summarizer.utils.common import read_yml,create_dirs
 import os
-import urllib.request as request
-from src.text_summarizer.entity import DataIngestionConfig,ModelTrainerConfig,DataTransformationConfig
+from src.text_summarizer.entity import DataIngestionConfig,ModelTrainerConfig,DataTransformationConfig,ModelEvaluationConfig
 from src.text_summarizer.logging import LOGGER
 from src.text_summarizer.constants import CONFIG_FILE_PATH,PARAMS_FILE_PATH
 
@@ -63,4 +61,15 @@ class ConfigurationManager:
             device=model_trainer_config_params.device
         )
         return model_trainer_config
-
+    
+    def get_model_evaluation_config(self):
+        model_eval_config = self.config.model_evaluation
+        create_dirs([model_eval_config.root_dir])
+        model_eval_config = ModelEvaluationConfig(
+            root_dir=model_eval_config,
+            data_path=model_eval_config.data_path,
+            model_path=model_eval_config.model_path,
+            tokenizer_path=model_eval_config.tokenizer_path,
+            metric_file_name=model_eval_config.metric_file_name
+        )
+        return model_eval_config

@@ -1,11 +1,6 @@
-# --- Core ML & Deep Learning ---
+# --- Core ML & Deep Learning (Version Locked) ---
 tensorflow==2.12.0
 keras==2.12.0
-torch==2.0.1
-transformers==4.30.2
-transformers[sentencepiece]
-datasets==2.12.0
-evaluate==0.4.0
 numpy==1.23.5
 pandas==1.5.3
 scikit-learn==1.2.2
@@ -15,12 +10,6 @@ tensorboard==2.12.3
 xgboost==1.7.6
 catboost==1.2
 
-# --- NLP Metrics & Processing ---
-sacrebleu==2.3.1
-rouge_score==0.1.2
-py7zr==0.20.5
-nltk==3.8.1
-
 # --- Optimization & Experiment Tracking ---
 hyperopt==0.2.7
 dvc
@@ -28,12 +17,10 @@ dagshub
 dvc-s3
 python-dotenv==1.2.1
 
-# --- Database & AWS Connectivity ---
+# --- Database & Connectivity ---
 pymongo==4.6.1
 dnspython
 certifi==2024.12.14
-boto3==1.26.151
-mypy-boto3-s3==1.26.127
 
 # --- Visualization & Notebooks ---
 matplotlib
@@ -41,18 +28,19 @@ notebook
 tqdm
 
 # --- Utilities & Configuration ---
-python-box==6.0.2
-ensure==1.0.2
+python-box
 pyYAML
 types-PyYAML
+ensure
 joblib
-dill
 
 # --- Web & API ---
 Flask
 Flask-Cors
-fastapi==0.78.0
-uvicorn==0.18.3
+fastapi
+uvicorn
 python-multipart
-Jinja2==3.1.2
-#-e
+
+dill
+pyaml
+-e .

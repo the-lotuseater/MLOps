@@ -34,6 +34,7 @@ dnspython
 certifi==2024.12.14
 boto3==1.26.151
 mypy-boto3-s3==1.26.127
+sagemaker==2.195.0
 
 # --- Visualization & Notebooks ---
 matplotlib
@@ -43,7 +44,7 @@ tqdm
 # --- Utilities & Configuration ---
 python-box==6.0.2
 ensure==1.0.2
-pyYAML
+pyYAML==6.0.1
 types-PyYAML
 joblib
 dill

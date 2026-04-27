@@ -49,6 +49,10 @@ types-PyYAML
 joblib
 dill
 
+psycopg2
+faker
+pandas
+
 # --- Web & API ---
 Flask
 Flask-Cors

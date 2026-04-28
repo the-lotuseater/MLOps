@@ -4,6 +4,10 @@
 
 Blog generation system using AWS Bedrock (Llama 3), Lambda, S3, and API Gateway.
 
+![Architecture Diagram](architecture.png)
+
+A user sends a `POST /generate-blog` request to **Amazon API Gateway**, which triggers an **AWS Lambda** function. Lambda invokes **AWS Bedrock** (Llama 3) to generate the blog content, archives the result to **AWS S3**, and returns the blog in the HTTP response.
+
 ## Setup Steps
 
 1. **Create S3 Bucket** for archiving blog responses
@@ -13,15 +17,22 @@ Blog generation system using AWS Bedrock (Llama 3), Lambda, S3, and API Gateway.
 
 ## Usage
 
-Upon making an API call to this URL with this payload-
+**Endpoint:**
+```
+POST https://n4x1j6bf6j.execute-api.us-east-1.amazonaws.com/generate-blog
+```
 
-https://n4x1j6bf6j.execute-api.us-east-1.amazonaws.com/generate-blog
-
-With this payload
+**Request payload:**
+```json
 {
-    "blog_topic":"super bowl 2026"
+    "blog_topic": "top 5 ideas for lifestyle content"
 }
+```
 
-One can expect to receive a response back liek this-
-
-{"message": "Blog Generation is completed", "blog_content": "\n\nAs we look ahead to the 2026 Super Bowl, excitement is building for what promises to be an unforgettable event. The big game is set to take place on February 7th, 2026, at the newly renovated SoFi Stadium in Inglewood, California.\n\nThis year's championship matchup is shaping up to be a thrilling one, with the top teams in the league battling it out for the Vince Lombardi Trophy. The Kansas City Chiefs, led by quarterback Patrick Mahomes, are looking to repeat their 2020 success, while the Buffalo Bills, with their high-powered offense, are looking to make a deep playoff run.\n\nOff the field, the Super Bowl is expected to be a celebration of music, fashion, and entertainment. The halftime show is rumored to feature a star-studded lineup of performers, including pop sensation Ariana Grande and rock legend Bruce Springsteen. Meanwhile, the Super Bowl commercials are sure to be a highlight, with major brands vying for attention and ad dollars.\n\nAs the big day approaches, fans are gearing up for a weekend of football, friends, and festivities. Whether you're a die-hard football fan or just looking for a fun excuse to get together with friends, the 2026 Super Bowl is an event you won't want to miss. Mark your calendars and get ready to join the party!"}
+**Example response** (`200 OK`, ~7s):
+```json
+{
+  "message": "Blog Generation is completed",
+  "blog_content": "When it comes to creating engaging lifestyle content, it can be challenging to come up with fresh and relevant ideas. However, with a little creativity and inspiration, you can craft content that resonates with your audience and sets your brand apart. Here are the top 5 ideas for lifestyle content that are sure to spark some creativity:\n\nFirst up, consider creating content around self-care and wellness. With the rise of mindfulness and meditation, people are more interested than ever in taking care of their mental and physical health.\n\nNext, think about exploring the world of food and drink. Whether you're a lover of good cuisine, there's no shortage of topics to cover. From restaurant reviews to recipes and cooking techniques, you could create a wealth of content that appeals to food lovers everywhere.\n\nAnother idea is to focus on travel and adventure. With the rise of social media, people are more inspired than ever to explore new places and experience new cultures.\n\nFourth, consider creating content around home and organization. With the rise of minimalism and decluttering, people are looking for ways to simplify their lives and create a more peaceful living space.\n\nFinally, don't forget about the world of beauty and fashion. From makeup tutorials to fashion trends and style advice, there's no shortage of topics to cover."
+}
+```

@@ -1,5 +1,17 @@
 # 13-GenAI
 
+## Architecture
+
+Blog generation system using AWS Bedrock (Llama 3), Lambda, S3, and API Gateway.
+
+## Setup Steps
+
+1. **Create S3 Bucket** for archiving blog responses
+2. **Create AWS Lambda function** using Python 3.12 runtime with `app.lambda_handler` as the handler, and choose Llama 3 (`meta.llama3-8b-instruct-v1:0`) as the Bedrock model
+3. **Attach IAM permissions** to the Lambda execution role — Bedrock full access (`AmazonBedrockFullAccess`) and S3 full access (`AmazonS3FullAccess`)
+4. **Create API Gateway** (HTTP API) pointing to the Lambda function, expose a POST endpoint at `/generate-blog`
+
+## Usage
 
 Upon making an API call to this URL with this payload-
 

@@ -4,7 +4,7 @@
 
 Blog generation system using AWS Bedrock (Llama 3), Lambda, S3, and API Gateway.
 
-![Architecture Diagram](architecture.png)
+![Architecture Diagram](./images/architecture.png)
 
 A user sends a `POST /generate-blog` request to **Amazon API Gateway**, which triggers an **AWS Lambda** function. Lambda invokes **AWS Bedrock** (Llama 3) to generate the blog content, archives the result to **AWS S3**, and returns the blog in the HTTP response.
 

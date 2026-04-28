@@ -19,7 +19,7 @@ A user sends a `POST /generate-blog` request to **Amazon API Gateway**, which tr
 
 **Endpoint:**
 ```
-POST https://n4x1j6bf6j.execute-api.us-east-1.amazonaws.com/generate-blog
+POST https://8p09jx44z2.execute-api.us-east-2.amazonaws.com/generate-blog
 ```
 
 **Request payload:**

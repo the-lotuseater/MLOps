@@ -91,5 +91,5 @@ streamlit run final-app.py
 
 ### Demo
 
-![NIM RAG Demo](./nim-project/images/RAG-qa-result.png)
+![NIM RAG Demo](./images/RAG-qa-result.png)
 
